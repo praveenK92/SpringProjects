@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: SpringBasicsCode
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Praveen
+Implementation-Vendor-Id: Spring.Basics
+Build-Jdk: 1.8.0_71
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

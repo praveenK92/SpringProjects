@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MyBatis.BlogMapper">
+
+	<resultMap id="Aa" type="mybatis.spring.dummy.models.A">
+		<result property="name" column="name" />
+		<result property="id" column="id" />
+	</resultMap>
+	<select id="getA" resultMap="Aa">
+		SELECT * FROM A
+	</select>
+
+</mapper>

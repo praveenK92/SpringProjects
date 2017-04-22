@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+	<bean id="quest" class="Models.Impl.SlayDragon"/>
+	<bean id="Brave" class="Models.Impl.BraveKnight">
+		<constructor-arg ref="quest"/>
+	</bean>
+	<bean id="KnightAspect" class="Config.KnightAspectForXML"/>
+	<bean id="KnightIntro" class="Config.KnightIntroXML" factory-method="aspectOf"/>
+	
+	<aop:config>
+		<aop:aspect ref="KnightAspect" >
+			<aop:pointcut id="perform" expression="execution(* Models.Knight.embarkOnQuest(String)) and args(ss)"/>
+			<!-- <aop:before pointcut-ref="perform" method="silenceCellPhones"/>
+			<aop:before pointcut-ref="perform" method="takeSeats"/>
+			<aop:after-returning pointcut-ref="perform" method="applause"/>
+			<aop:after-throwing pointcut-ref="perform" method="demandRefund"/> -->
+			<aop:around pointcut-ref="perform" method="watchPerformance"/>
+		</aop:aspect>
+	</aop:config>
+	<aop:config>
+		<aop:aspect>
+			<aop:declare-parents types-matching="Models.Knight+"
+			implement-interface="Models.Hello" default-impl="Models.Impl.HelloImpl"/>
+		</aop:aspect>
+	</aop:config>
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="Husb" class="a.b.c.model.Husband">
+		<property name="name" value="Sasuke"/>
+		<property name="job" value="Shinobi"/>
+		<property name="w" ref="wf"/>
+	</bean>
+	<bean id="wf" class="a.b.c.model.Wife">
+		<property name="name" value="Sakura"/>
+		<property name="job" value="Kunoichi"/>
+	</bean>
+</beans>

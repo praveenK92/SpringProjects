@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+	<!-- <bean class="Configuration.Config2"/>-->
+	<bean id="knight" class="Interfaces.Impl.BraveKnight" c:_0-ref="qu"/>
+	<bean id="qu" class="Interfaces.Impl.SlayDragon">
+		<constructor-arg value="#{T(System).out}" />
+	</bean>
+	<bean id="minstrel" class="Interfaces.Impl.Minstrel">
+		<constructor-arg value="#{T(System).out}" />
+	</bean>
+	<!-- <aop:config>
+		<aop:aspect ref="minstrel">
+			<aop:pointcut id="embark" expression="execution(* *.embarkOnQuest(..))" />
+			<aop:before pointcut-ref="embark" method="singBeforeQuest" />
+			<aop:after pointcut-ref="embark" method="singAfterQuest" />
+		</aop:aspect>
+	</aop:config>-->
+	
+	<bean id="cdplayer" class="Interfaces.Impl.CDPlayer">
+		<property name="c" ref="cd"/>
+	</bean>
+	<bean id="cd" class="Interfaces.Impl.CompactDisc">
+		<property name="title" value="Praveen"/>
+		<property name="song" value="Overtaken"/>
+	</bean>
+</beans>
